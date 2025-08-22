@@ -1,0 +1,9 @@
+.box{
+    transform:rotateX(-20deg) rotateY(15deg);
+  animation: rotate 5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  from{transform:rotateY(0deg) rotateX(-20deg) ;}
+  to{transform:rotateY(360deg) rotateX(-20deg) ;}
+}
