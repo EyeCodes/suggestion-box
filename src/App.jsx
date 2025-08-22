@@ -1,15 +1,17 @@
 import './App.css'
+import Form from './layout/form';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 function App() {
   return (
     <>
         
-      <header className='h-fit w-full p-4 bg-blue-400 absolute top-0'>
+      <header className='h-fit w-full p-4 bg-blue-400  top-0'>
         <h1 className='text-white text-2xl font-bold'>SUGGESTION BOX</h1>
       </header>
-      <div className='h-[100vh] w-full bg-amber-300 flex gap-0 justify-center items-center '>
+      <div className='h-[100vh] w-full relative  '>
 
-          <div className={`h-[20rem] w-[20rem] relative bg-none transform-3d perspective-1000 rotate-y-15 -rotate-x-20 box`}>
+          <div className='h-full w-full flex justify-center items-center'>
+            <div className={`h-[20rem] w-[20rem]  relative bg-none transform-3d perspective-1000 rotate-y-15 -rotate-x-20 box`}>
 
             <div className={`h-full w-full absolute bg-[#ede0d4] flex items-center -translate-z-[10rem] `}> 
               {/* back */}
@@ -37,7 +39,11 @@ function App() {
 
           </div>
 
+          </div>
+
+      <Form/>
       </div>  
+
       
     </>
   )

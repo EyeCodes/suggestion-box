@@ -1,9 +1,46 @@
 .box{
     transform:rotateX(-20deg) rotateY(15deg);
-  animation: rotate 5s ease-in-out infinite;
+  /* animation: rotate 5s ease-in-out infinite; */
+}
+
+
+
+.letter{
+  animation: zoomOut 5s ease-in-out infinite;
+}
+
+@keyframes zoomOut {
+  0%{transform: scale(1);}
+  20%{transform: scale(.2);}
+  40%{transform: scale(.2) translateY(-80em) rotateX(-20deg) rotateY(15deg);}
+  60%{transform: scale(.2) translateY(-50em) rotateX(-20deg) rotateY(15deg);}
+  80%{transform: scale(.2) translateY(-50em) rotateX(-20deg) rotateY(15deg);}
+  100%{transform: scale(.2) translateY(-50em) rotateX(-20deg) rotateY(15deg);
+        opacity: 0;}
 }
 
 @keyframes rotate {
   from{transform:rotateY(0deg) rotateX(-20deg) ;}
   to{transform:rotateY(360deg) rotateX(-20deg) ;}
+}
+
+/*  */
+
+input:disabled{
+  background-color: #6c757d56;
+  border-color: #6c757d56;
+}
+
+
+
+.formField{
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.formField>input{
+  border: black 1px solid;
+  padding: .5em;
 }
