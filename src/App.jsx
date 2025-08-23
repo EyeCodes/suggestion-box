@@ -3,7 +3,7 @@ import Form from './pages/form';
 import Header from './layout/header';
 import CreateBox from './pages/createBox';
 import MyBox from './pages/myBox';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import FetchBox from './component/fetchBox';
 
 function App() {
