@@ -9,7 +9,7 @@ import FetchBox from './component/fetchBox';
 function App() {
   return (
 
-    <Router basename="/suggestion-box">
+    <Router >
       <>
         <Header/>
         <div className='h-[100dvh] w-full relative  '>
