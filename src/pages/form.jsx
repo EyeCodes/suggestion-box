@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import sendLetter from '../component/addLetter';
 import Box from './box';
-import { useParams } from 'react-router-dom';
 import PageEmpty from '../layout/emptyPage';
+import { Link } from "react-router-dom";
+import FetchBox from '../component/fetchBox';
 
-function Form() {
+function Form(box) {
 
-    const { box } = useParams();
 
     // const rand = Math.floor(Math.random() * 5000) + 100
     const [isChecked, setIsChecked] = useState(false);
@@ -22,13 +22,15 @@ function Form() {
     const [storeAnimation, setLetterAnimation] = useState('');
     const [boxAnimation, setBoxAnimation] = useState('box');
     
+      const boxData = box.box;
+
     const storeLetter = () =>{
 
       if(userName == '' || content == ''){
         return alert('All required field must be filled');
       }
 
-      sendLetter({ name: userName,type: type, content,box: box})
+      sendLetter({ name: userName,type: type, content,box: boxData.boxName})
       setLetterAnimation('letter')
       setBoxAnimation('')
 
@@ -45,11 +47,10 @@ function Form() {
         <PageEmpty message='NO SUGGESTION BOX HERE' />
       );
     }
-
   return (
     
     <>
-          <Box setAnimation={boxAnimation}/>
+      <Box setAnimation={boxAnimation} color={boxData.boxColor} logo={boxData.boxLogo} title={boxData.boxTitle}  />
 
       <div className={`${storeAnimation} h-fit w-100 opacity-95 absolute bg-white p-2 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[55%] shadow-2xl transform-z-99`}>
       <div className={` h-full w-full relative transform-3d perspective-distant overflow-auto`}>

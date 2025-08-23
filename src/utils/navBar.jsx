@@ -5,7 +5,6 @@ function NavBar(){
 
   const [boxName, setBoxName] = useState('');
   const searchBox = ()=> {
-    console.log(boxName)
   }
 
   return (
@@ -23,7 +22,7 @@ function NavBar(){
 
           <div className="h-fit w-fit absolute flex justify-center items-center top-2  gap-2 left-100 z-99">
             <input type="text" placeholder="Search for Suggestion Box" value={boxName} onChange={e => setBoxName(e.target.value)} className="bg-white w-100 p-4 rounded-2xl" />
-              <Link to={`/box/${boxName}`}>
+              <Link to={`box/${boxName}`}>
             <button onClick={searchBox}> 
               <MagnifyingGlassIcon className="h-5 w-5" />
             </button>
