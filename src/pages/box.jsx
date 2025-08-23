@@ -1,6 +1,5 @@
 
 function Box({setAnimation}){
-  console.log(setAnimation)
   return (
     <div className={`h-[20rem] w-[20rem]  relative bg-none transform-3d perspective-1000 rotate-y-15 -rotate-x-20 ${setAnimation}`}>
 

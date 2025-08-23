@@ -3,23 +3,32 @@ import sendLetter from '../component/addLetter';
 import Box from './box';
 
 function Form() {
-
+    // const rand = Math.floor(Math.random() * 5000) + 100
     const [isChecked, setIsChecked] = useState(false);
     const handleCheckboxChange = (event) => {
         setIsChecked(event.target.checked); 
-        console.log(event.target.checked);
+        isChecked ?  setName('') : setName('Anonymous')
+
       };
 
     const [userName, setName] = useState('');
-    const [type, setType] = useState('');
+    const [type, setType] = useState('suggestion');
     const [content, setContent] = useState('');
     const [storeAnimation, setLetterAnimation] = useState('');
     const [boxAnimation, setBoxAnimation] = useState('box');
-
+    
     const storeLetter = () =>{
+
+      if(userName == '' || content == ''){
+        return alert('All required field must be filled');
+      }
+
       sendLetter({ name: userName,type: type, content,box: 'test'})
       setLetterAnimation('letter')
       setBoxAnimation('')
+
+      setName(''), setType('suggestion'), setContent(''), setIsChecked(false)
+
       setTimeout(()=>{
       setBoxAnimation('box')
       setLetterAnimation('')
@@ -40,7 +49,7 @@ function Form() {
 
           <div className='formField'>
             <label htmlFor="name">Name</label>
-          <input type="text" id='name' value={userName} onChange={e => setName(e.target.value)} placeholder={isChecked ? 'Anonymous' : 'Name'} disabled={isChecked}/>
+          <input type="text" id='name' value={userName} onChange={e => setName(e.target.value)} placeholder='Name' disabled={isChecked}/>
             <div className='flex gap-2'>
             <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange} /><span>Anonymous</span>
           </div>
@@ -50,8 +59,8 @@ function Form() {
           <div className='formField'>
             <label htmlFor="type">Type</label>
             <select name="type" id="type" value={type} onChange={e => setType(e.target.value)} className='p-2 border-1'>
-              <option value="Suggestion" defaultValue={e => e.target.value}>Suggestion</option>
-              <option value="Complain">Complain</option>
+              <option value="suggestion" selected>Suggestion</option>
+              <option value="complain">Complain</option>
             </select>
           </div>
     <hr />
