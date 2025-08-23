@@ -1,12 +1,10 @@
 .box{
     transform:rotateX(-20deg) rotateY(15deg);
-  /* animation: rotate 5s ease-in-out infinite; */
+    animation: rotate 5s ease-in-out infinite;
 }
 
-
-
 .letter{
-  animation: zoomOut 5s ease-in-out infinite;
+  animation: zoomOut 5s ease-in-out;
 }
 
 @keyframes zoomOut {
