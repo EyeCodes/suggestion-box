@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import sendLetter from '../component/addLetter';
 import Box from './box';
+import { useParams } from 'react-router-dom';
+import PageEmpty from '../layout/emptyPage';
 
 function Form() {
+
+    const { box } = useParams();
+
     // const rand = Math.floor(Math.random() * 5000) + 100
     const [isChecked, setIsChecked] = useState(false);
     const handleCheckboxChange = (event) => {
@@ -23,7 +28,7 @@ function Form() {
         return alert('All required field must be filled');
       }
 
-      sendLetter({ name: userName,type: type, content,box: 'test'})
+      sendLetter({ name: userName,type: type, content,box: box})
       setLetterAnimation('letter')
       setBoxAnimation('')
 
@@ -34,13 +39,17 @@ function Form() {
       setLetterAnimation('')
       }, 5000);
     }  
+    if(!box){
+      return (
+        
+        <PageEmpty message='NO SUGGESTION BOX HERE' />
+      );
+    }
 
   return (
     
     <>
-        <div className='h-full w-full flex justify-center items-center'>
           <Box setAnimation={boxAnimation}/>
-        </div>
 
       <div className={`${storeAnimation} h-fit w-100 opacity-95 absolute bg-white p-2 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[55%] shadow-2xl transform-z-99`}>
       <div className={` h-full w-full relative transform-3d perspective-distant overflow-auto`}>

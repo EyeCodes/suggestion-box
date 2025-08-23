@@ -1,7 +1,7 @@
 {
   "name": "suggestion-box",
   "private": true,
-  "version": "0.0.0",
+  "version": "pre.1.0",
   "homepage": "http://EyeCodes.github.io/suggestion-box",
   "type": "module",
   "scripts": {
@@ -13,7 +13,9 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.12",
+    "crypto-js": "^4.2.0",
     "firebase": "^12.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

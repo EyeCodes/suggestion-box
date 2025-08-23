@@ -29,7 +29,10 @@ input:disabled{
   border-color: #6c757d56;
 }
 
-
+input{
+  border: 1px black solid;
+  border-radius: 8px;
+}
 
 .formField{
   display: flex;
@@ -41,4 +44,8 @@ input:disabled{
 .formField>input{
   border: black 1px solid;
   padding: .5em;
+}
+
+.links:hover *{
+  color: red;
 }
