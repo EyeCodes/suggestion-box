@@ -4,16 +4,16 @@
 }
 
 .letter{
-  animation: zoomOut 5s ease-in-out;
+  animation: zoomOut 5s ease-in-out infinite;
 }
 
 @keyframes zoomOut {
   0%{transform: scale(1);}
   20%{transform: scale(.2);}
   40%{transform: scale(.2) translateY(-80em) rotateX(-20deg) rotateY(15deg);}
-  60%{transform: scale(.2) translateY(-50em) rotateX(-20deg) rotateY(15deg);}
-  80%{transform: scale(.2) translateY(-50em) rotateX(-20deg) rotateY(15deg);}
-  100%{transform: scale(.2) translateY(-50em) rotateX(-20deg) rotateY(15deg);
+  60%{transform: scale(.2) translateY(-55em) rotateX(-20deg) rotateY(15deg);}
+  80%{transform: scale(.2) translateY(-60em) rotateX(-20deg) rotateY(15deg);}
+  100%{transform: scale(.2) translateY(-60em) rotateX(-20deg) rotateY(15deg);
         opacity: 0;}
 }
 
@@ -29,7 +29,7 @@ input:disabled{
   border-color: #6c757d56;
 }
 
-input{
+input, textarea, select{
   border: 1px black solid;
   border-radius: 8px;
 }

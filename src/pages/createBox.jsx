@@ -1,6 +1,7 @@
 import { useState } from "react";
 import addBox from "../component/createBox";
 import Box from "./box"
+import { useNavigate } from "react-router-dom";
 
 function CreateBox(){
     const [boxAnimation] = useState('box');
@@ -9,22 +10,32 @@ function CreateBox(){
     const [boxColor, setBoxColor] = useState('default');
     const [boxTitle, setBoxTitle] = useState('');
     const [boxLogo, setBoxLogo] = useState('');
+    const [boxDescription, setBoxDescription] = useState('');
+
+    const naviagate = useNavigate()
 
   const color = ['default', 'red', 'green', 'blue']
   
   const createBox = ()=> {
 
-    if(!boxName || !boxTitle){
-      return alert('Fill Required Fields')
+    if(!boxName || !boxCode){
+      return alert('All required field must be filled')
     }
-
-    addBox({boxName: boxName, boxCode: boxCode, boxColor: boxColor, boxLogo: boxLogo, boxTitle: boxTitle})
+    setBoxName('')
+    setBoxCode('')
+    setBoxLogo('')
+    setBoxTitle('')
+    setBoxColor('default')
+    setBoxDescription('')
+    addBox({boxName: boxName, boxCode: boxCode, boxColor: boxColor, boxLogo: boxLogo, boxTitle: boxTitle, boxDescription: boxDescription})
+    alert(`Suggestion Box ${boxName} successfully Created`)
+    naviagate('/my-box/search')
   }
 
   return (
     <div className="h-full w-full grid grid-cols-2">
       <Box setAnimation={boxAnimation} color={boxColor} logo={boxLogo} title={boxTitle}/>
-      <div className="h-full w-full bg-white p-4 flex flex-col gap-4">
+      <div className="h-full w-full bg-white p-4 flex flex-col gap-2 z-2">
         <h1>CREATE SUGGESTION BOX</h1>
 
           <div className="flex flex-col">
@@ -34,7 +45,7 @@ function CreateBox(){
 
           <div className="flex flex-col">
             <label htmlFor="boxCode"> Box Password <span className="text-red-500">*</span></label>
-          <input type="text" name="boxcode" id="" placeholder="Password" value={boxCode} onChange={e => setBoxCode(e.target.value)}  className="p-2" />
+          <input type="password" name="boxcode" id="" placeholder="Password" value={boxCode} onChange={e => setBoxCode(e.target.value)}  className="p-2" />
           </div>
           
           <div className="flex flex-col">
@@ -47,14 +58,19 @@ function CreateBox(){
           <input type="url" name="logo" id="" placeholder="Image Link (Optional)" value={boxLogo} onChange={e => setBoxLogo(e.target.value)} disabled={boxTitle}  className="p-2" />
           </div>
 
-          <select name="" id="" defaultValue={boxColor} onChange={e => setBoxColor(e.target.value)} className="p-4 border">
+          <div className="flex flex-col">
+            <label htmlFor="description"> Description <span>(OPTIONAL)</span></label>
+            <textarea name="description" id="" value={boxDescription} onChange={e => setBoxDescription(e.target.value)} className="h-20 w-full resize-none p-4"></textarea>
+          </div>
+
+          <select name="" id="" defaultValue={boxColor} onChange={e => setBoxColor(e.target.value)} className="p-4">
             {
               color.map((e) => (
                 <option value={e}>{e}</option>
               ))
             }
           </select>
-          <button onClick={createBox}>CREATE</button>
+          <button onClick={createBox} className="h-fit w-full py-2 bg-blue-400 hover:bg-blue-500 rounded-2xl">CREATE</button>
       </div>
 
     </div>

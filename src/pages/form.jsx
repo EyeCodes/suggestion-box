@@ -7,7 +7,6 @@ import FetchBox from '../component/fetchBox';
 
 function Form(box) {
 
-
     // const rand = Math.floor(Math.random() * 5000) + 100
     const [isChecked, setIsChecked] = useState(false);
     const handleCheckboxChange = (event) => {
@@ -30,7 +29,7 @@ function Form(box) {
         return alert('All required field must be filled');
       }
 
-      sendLetter({ name: userName,type: type, content,box: boxData.boxName})
+      sendLetter({ name: userName,type: type, content, box: boxData.boxName})
       setLetterAnimation('letter')
       setBoxAnimation('')
 
@@ -41,18 +40,12 @@ function Form(box) {
       setLetterAnimation('')
       }, 5000);
     }  
-    if(!box){
-      return (
-        
-        <PageEmpty message='NO SUGGESTION BOX HERE' />
-      );
-    }
   return (
     
     <>
       <Box setAnimation={boxAnimation} color={boxData.boxColor} logo={boxData.boxLogo} title={boxData.boxTitle}  />
 
-      <div className={`${storeAnimation} h-fit w-100 opacity-95 absolute bg-white p-2 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[55%] shadow-2xl transform-z-99`}>
+      <div className={`${storeAnimation} h-fit w-100 pt-[5em] opacity-95 absolute bg-white p-2 top-[55%] left-[50%] -translate-x-[50%] -translate-y-[55%] shadow-2xl transform-z-99`}>
       <div className={` h-full w-full relative transform-3d perspective-distant overflow-auto`}>
         
         <div className='flex flex-col bg-white'>

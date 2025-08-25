@@ -12,7 +12,8 @@ const addBox = async (boxConfig) => {
         boxCode: hashedBoxCode,
         boxColor: boxConfig.boxColor,
         boxTitle: boxConfig.boxTitle,
-        boxLogo: boxConfig.boxLogo
+        boxLogo: boxConfig.boxLogo,
+        boxDescription: boxConfig.boxDescription
       })
       console.log(docRef.doc)
   }
