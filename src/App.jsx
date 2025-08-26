@@ -48,7 +48,7 @@ useEffect(()=> {
             <Route path='/*' element={<PageEmpty message={`404 \n PAGE NOT FOUND`} />} />
           </Routes>
         </div>
-        <ReportButton />
+        {/* <ReportButton /> */}
         </div>  
       </>    
         ) }

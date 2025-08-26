@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import sendLetter from '../component/addLetter';
 import Box from './box';
-import PageEmpty from '../layout/emptyPage';
-import { Link } from "react-router-dom";
-import FetchBox from '../component/fetchBox';
 import { SendReport } from '../component/bugReport';
+import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 
 function Form(box) {
 
@@ -22,8 +20,17 @@ function Form(box) {
     const [storeAnimation, setLetterAnimation] = useState('');
     const [boxAnimation, setBoxAnimation] = useState('box');
     const [report, setReport] = useState(false)
+
+    const childDiv = useRef(null)
+    const [isClicked, setIsClicked] = useState(false);
     
-      const boxData = box.box;
+    const boxData = box.box;
+
+    const openInfo = () => {
+      if(isClicked) setIsClicked(false)
+      else setIsClicked(true)
+    }
+
     useEffect(()=>{
         setName(''), setType('suggestion'), setContent(''), setIsChecked(false)
         if(boxData.boxName == 'report-bugs'){
@@ -58,11 +65,20 @@ function Form(box) {
     <>
       <Box setAnimation={boxAnimation} color={boxData.boxColor} logo={boxData.boxLogo} title={boxData.boxTitle}  />
 
-      <div className={`${storeAnimation} letterForm h-fit w-100 pt-[5em] opacity-95 absolute bg-white p-2 top-[55%] left-[50%] -translate-x-[50%] -translate-y-[55%] shadow-2xl transform-z-99`}>
-      <div className={` h-full w-full relative transform-3d perspective-distant overflow-auto`}>
+      <div className={`${storeAnimation} letterForm sm:h-[80%] xl:h-fit w-100 pt-[1em] opacity-70 absolute bg-white sm:top-[60%] xl:top-[60%] left-[50%] -translate-x-[50%] -translate-y-[55%] shadow-2xl transform-z-99`}>
         
+      <div className={` h-full w-full relative transform-3d perspective-distant overflow-auto`}>
         <div className='flex flex-col bg-white'>
 
+        <div className='w-full relative flex justify-between'>
+          <h1 className='w-fit px-[.7em] text-[1.5em] overflow-hidden text-nowrap font-bold capitalize'>{boxData.boxName}</h1>
+
+            <h1 className={`${isClicked ? 'openInfo' : ''} w-0 absolute text-[1px] font-medium shadow-md shadow-black right-6 transition-all duration-500 ease-in-out bg-blue-400 text-white rounded-lg rounded-tr-none top-2 self-center`}>{ boxData.boxDescription }</h1>
+
+            <QuestionMarkCircleIcon ref={childDiv} onClick={openInfo} className='h-[2em] w-[2em] mx-[1em] font-bold bg-white rounded-full hover:text-blue-500 transition-colors duration-200 ease-in-out z-2' />
+
+        </div>
+        
           <div className='formField'>
             <label htmlFor="name">{report ? 'Title' : 'Name'}</label>
           <input type="text" id='name' value={userName} onChange={e => setName(e.target.value)} placeholder={report ? 'Title' : 'Name'} disabled={isChecked}/>
@@ -102,6 +118,7 @@ function Form(box) {
 
       </div>
     </div>
+
     </>
 
   )

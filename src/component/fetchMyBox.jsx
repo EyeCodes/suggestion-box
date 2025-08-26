@@ -81,7 +81,7 @@ function FetchMyBox(){
       }
 
       return (
-    <div className="w-fit h-fit bg-white p-4 flex flex-col gap-4 justify-center">
+    <div className="w-fit h-fit bg-white p-4 flex flex-col gap-4 justify-center rounded-sm ">
       <h1 className="font-bold">MY SUGGESTION BOX</h1> 
       <input type="text" name="" id="" placeholder="Box Name" value={fieldBoxName} onChange={e => setFieldBoxName(e.target.value)} className="p-2" />
       <input type="password" name="" id="" placeholder="Password" value={fieldBoxCode} onChange={e => setFieldBoxCode(e.target.value)}  className="p-2" />

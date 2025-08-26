@@ -24,7 +24,7 @@ function Box({setAnimation, title, logo, color}){
         'left': '308709',
         'right': '359908',
         'top': '42b50e',
-        'bottom': '004b23',
+        'bottom': '006b20',
         'back': '007200',
       },
       'blue': {
@@ -32,14 +32,14 @@ function Box({setAnimation, title, logo, color}){
         'left': '023e7d',
         'right': '0353a4',
         'top': '045eb8',
-        'bottom': '001845',
-        'back': '002855',
+        'bottom': '033e7d',
+        'back': '0436c8',
       }
   }]
 
   return (
   <div className='h-full w-full flex justify-center items-center'>
-    <div className={`boxSize md:h-[20em] md:w-[20em] h-80 w-80 sm:scale-[1] lg:scale-[1] sm:translate-z-[calc(10vw)] relative bg-none transform-3d md:perspective-1000 sm:perspective-500 rotate-y-15 -rotate-x-20 ${setAnimation}`}>
+    <div className={`boxSize h-[20em] w-[20em] relative transform-3d bg-none perspective-1000 ${setAnimation}`}>
 
             <div style={{ backgroundColor: `#`+boxColor[0][color]['back'] }} className={`h-full w-full absolute flex items-center -translate-z-[10rem] `}> 
               {/* back */}
