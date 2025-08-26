@@ -39,9 +39,9 @@ function Box({setAnimation, title, logo, color}){
 
   return (
   <div className='h-full w-full flex justify-center items-center'>
-    <div className={`md:h-[20em] md:w-[20em] h-80 w-80  md:translate-z-7 sm:scale-[.5] lg:scale-[.8] sm:translate-z-[calc(10vw)] relative bg-none transform-3d md:perspective-1000 sm:perspective-500 rotate-y-15 -rotate-x-20 ${setAnimation}`}>
+    <div className={`boxSize md:h-[20em] md:w-[20em] h-80 w-80 sm:scale-[1] lg:scale-[1] sm:translate-z-[calc(10vw)] relative bg-none transform-3d md:perspective-1000 sm:perspective-500 rotate-y-15 -rotate-x-20 ${setAnimation}`}>
 
-            <div style={{ backgroundColor: `#`+boxColor[0][color]['back'] }} className={`h-[100%] w-full absolute flex items-center -translate-z-[10rem] `}> 
+            <div style={{ backgroundColor: `#`+boxColor[0][color]['back'] }} className={`h-full w-full absolute flex items-center -translate-z-[10rem] `}> 
               {/* back */}
             </div>
 

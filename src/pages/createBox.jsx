@@ -33,9 +33,9 @@ function CreateBox(){
   }
 
   return (
-    <div className="h-full w-full grid grid-cols-2">
+    <div className="createBox h-full w-full grid grid-cols-2">
       <Box setAnimation={boxAnimation} color={boxColor} logo={boxLogo} title={boxTitle}/>
-      <div className="h-full w-full bg-white p-4 flex flex-col gap-2 z-2">
+      <div className="createBoxForm h-full w-full bg-white p-4 flex flex-col gap-2 z-2">
         <h1>CREATE SUGGESTION BOX</h1>
 
           <div className="flex flex-col">

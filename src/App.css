@@ -49,3 +49,51 @@ input, textarea, select{
 .links:hover *{
   color: red;
 }
+
+@media screen and ( max-width:640px) {
+  .boxSize{
+    position: absolute;
+    height: 20em;
+    width: 20em;
+    scale: .4;
+    transform: translateZ(10em);
+  }
+
+  header{
+    height: fit-content;
+  }
+  header h1 {
+    font-size: 1rem;
+  }
+  header nav{
+    flex-direction: column;
+
+    input{
+      width: 80%;
+      overflow: ellipsis;
+    }
+  }
+  .letterForm{
+    height: 70%;
+    width: 90%;
+    padding: 0 1em 1em 0;
+    top: 65%;
+  }
+  .createBox, .myBox{
+    display: flex;
+    flex-direction: column-reverse;
+    .createBoxForm{
+      height: fit-content;
+      overflow: scroll;
+      padding-top: 10vw;
+    }
+  }
+  .pageEmpty{
+    height: 100svh;    justify-content: center;
+    align-items: center;
+  }
+  .pageEmpty h1{
+    width: 60%;
+    font-size: 1em;
+  }
+}

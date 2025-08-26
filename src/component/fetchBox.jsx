@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from '../config/firebase';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Form from "../pages/form";
 import PageEmpty from "../layout/emptyPage";
 
 function FetchBox() {
 
   const { box } = useParams();
-
+   const naviagate =  useNavigate()
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -37,11 +37,12 @@ function FetchBox() {
   }, [box]); 
 
   if (loading) return <div>Loading...</div>;
+
+  if (error) return <div>Error: {error}</div>;
+
   if(!items || !box){
     return <PageEmpty message='NO SUGGESTION BOX HERE' />
   }
-  
-  if (error) return <div>Error: {error}</div>;
 
   return <Form box={items} />
 }

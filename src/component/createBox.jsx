@@ -1,5 +1,5 @@
 import { db } from '../config/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import CryptoJS  from 'crypto-js';
 
 
@@ -13,7 +13,9 @@ const addBox = async (boxConfig) => {
         boxColor: boxConfig.boxColor,
         boxTitle: boxConfig.boxTitle,
         boxLogo: boxConfig.boxLogo,
-        boxDescription: boxConfig.boxDescription
+        boxDescription: boxConfig.boxDescription,
+        createAt: serverTimestamp()
+        
       })
       console.log(docRef.doc)
   }

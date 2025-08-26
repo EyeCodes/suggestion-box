@@ -1,5 +1,5 @@
 import { db } from '../config/firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 
 const sendLetter = async (letterContent) => {
@@ -8,7 +8,8 @@ const sendLetter = async (letterContent) => {
         name: letterContent.name, 
         type: letterContent.type,
         contet: letterContent.content,
-        box: letterContent.box
+        box: letterContent.box,
+        createAt: serverTimestamp()
       })
       console.log(docRef.doc)
   }

@@ -1,22 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {MagnifyingGlassIcon} from "@heroicons/react/24/outline"
 import { useState } from "react";
 function NavBar(){
 
+  const naviagate = useNavigate()
+
   const [boxName, setBoxName] = useState('');
+  const [message, setMessage] = useState('');
   const searchBox = ()=> {
+    if(!boxName) {setMessage('Cant Be Empty')
+      setBoxName('')
+      setTimeout(()=>{
+      setMessage('')
+    },1000)}
+    else{
+      setBoxName('')
+      naviagate(`/box/${boxName}`)
+    }
+
   }
 
   return (
     <nav className=" w-fit flex flex-row  grow-1 justify-evenly items-center gap-2">
 
       <div className="h-fit lg:w-fit sm:w-[20%] flex justify-center items-center  gap-2 z-99">
-            <input type="text" placeholder="Search for Suggestion Box" value={boxName} onChange={e => setBoxName(e.target.value)} className="bg-white w-100 p-4 rounded-2xl overflow-ellipsis" />
-              <Link to={`box/${boxName}`}>
-            <button onClick={searchBox}> 
+            <input type="text" placeholder={message ? message : 'Search for Suggestion Box'} value={boxName} disabled={message} onChange={e => setBoxName(e.target.value)} className={`bg-white w-100 p-4 rounded-2xl overflow-ellipsis`} />
+            <button onClick={searchBox} disabled={message}> 
               <MagnifyingGlassIcon className="h-5 w-5" />
             </button>
-              </Link>
           </div>
 
       <div className="flex gap-2 justify-end float-end">

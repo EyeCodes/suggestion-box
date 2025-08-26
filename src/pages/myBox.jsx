@@ -3,16 +3,19 @@ import { useLocation } from "react-router-dom";
 import Box from "./box";
 import PageEmpty from "../layout/emptyPage";
 import FetchLetters from "../component/fetchLetters";
-// import {FetchMyBox} from "../component/fetchMyBox";
 
 function MyBox(){
   const location = useLocation();
-
-  const boxData = location.state?.boxData
-  const {letter, loading, error} = FetchLetters(boxData.boxName)
   const [boxAnimation] = useState('box');
+  
+  const boxData = location.state?.boxData
+  if(boxData == null) return <PageEmpty message={`419 \n PAGE EXPIRED`} />
+
+  const {letter, loading} = FetchLetters(boxData.boxName)
+
+
     return (
-      <div className="h-full w-full flex md:flex-row sm:flex-col-reverse">
+      <div className="myBox h-full w-full flex md:flex-row sm:flex-col-reverse">
           {boxData ? (
           <Box setAnimation={boxAnimation} color={boxData.boxColor} logo={boxData.boxLogo} title={boxData.boxTitle}  />
         ) : (
