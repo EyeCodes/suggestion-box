@@ -21,7 +21,7 @@ function Box({setAnimation, title, logo, color}){
       },
       'green': {
         'front': '329603',
-        'left': '308709',
+        'left': '2c7e06',
         'right': '359908',
         'top': '42b50e',
         'bottom': '006b20',
@@ -33,13 +33,21 @@ function Box({setAnimation, title, logo, color}){
         'right': '0353a4',
         'top': '045eb8',
         'bottom': '033e7d',
-        'back': '0436c8',
+        'back': '065cb1',
+      },
+      'white':{
+        'front': 'ffffff',
+        'left': 'eceaea',
+        'right': 'dad6d6',
+        'top': 'ffffff',
+        'bottom': '9e9e9e',
+        'back': 'afadad',
       }
   }]
 
   return (
   <div className='h-full w-full flex justify-center items-center'>
-    <div className={`boxSize h-[20em] w-[20em] relative transform-3d bg-none perspective-1000 ${setAnimation}`}>
+    <div className={`boxSize h-[20em] w-[20em] relative transform-3d bg-none perspective-1000 -rotate-x-20 rotate-y-10 ${setAnimation}`}>
 
             <div style={{ backgroundColor: `#`+boxColor[0][color]['back'] }} className={`h-full w-full absolute flex items-center -translate-z-[10rem] `}> 
               {/* back */}
@@ -61,12 +69,12 @@ function Box({setAnimation, title, logo, color}){
               {/* bottom */}
             </div>
 
-            <div style={{ backgroundColor: `#`+boxColor[0][color]['front'] }} className={`h-full w-full absolute flex  justify-center items-center object-contain translate-z-[10rem]`}>
+            <div style={{ backgroundColor: `#`+boxColor[0][color]['front'] }} className={`h-full w-full absolute flex justify-center items-center object-contain translate-z-[10rem]`}>
               { !!logo && (
                 <img src={logo} className={`h-full w-full object-contain`} />
               )
               }
-                <h1 className="h-fit w-full text-center font-bold text-3xl overflow-clip">{title}</h1>
+                <h1 className="h-full w-full flex overflow-hidden justify-center p-2 wrap-anywhere items-center text-center font-bold text-4xl">{`${title}`}</h1>
               {/* front */}
             </div>
 

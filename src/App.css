@@ -1,13 +1,9 @@
 .box{
-    transform:rotateX(-20deg) rotateY(10deg);
     animation: rotate 10s ease-in-out infinite;
 }
 
 .letter{
-  transform: translateZ(0);
   animation: zoomOut 5s ease-in-out infinite;
-  visibility: hidden;
-
 }
 
 .openInfo{
@@ -56,7 +52,7 @@ input, textarea, select{
 }
 
 .links:hover *{
-  color: red;
+  color: rgb(130, 169, 255);
 }
 
 @media screen and ( max-width:640px) {
@@ -97,7 +93,7 @@ input, textarea, select{
   .letterForm{
     height: 70%;
     width: 90%;
-    padding: 0 1em 1em 0;
+    padding: 1em;
     top: 65%;
   }
   .createBox, .myBox{
@@ -109,6 +105,14 @@ input, textarea, select{
       padding-top: 10vw;
     }
   }
+
+  .letterCont{
+    height: 50svh;
+    margin-top: 2em;
+    padding: 2em;
+    justify-content: center;
+  }
+
   .pageEmpty{
     height: 100svh;    justify-content: center;
     align-items: center;

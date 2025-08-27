@@ -14,7 +14,14 @@ function CreateBox(){
 
     const naviagate = useNavigate()
 
-  const color = ['default', 'red', 'green', 'blue']
+  const color = ['default', 'red', 'green', 'blue', 'white']
+
+  const stringLength = (e) => {
+    if(e.target.value.length <= 50 ){
+      if(e.target.name != 'name') {setBoxTitle(e.target.value)}
+      else {setBoxName(e.target.value)
+    }}
+  }
   
   const createBox = ()=> {
 
@@ -27,7 +34,7 @@ function CreateBox(){
     setBoxTitle('')
     setBoxColor('default')
     setBoxDescription('')
-    addBox({boxName: boxName, boxCode: boxCode, boxColor: boxColor, boxLogo: boxLogo, boxTitle: boxTitle, boxDescription: boxDescription})
+    addBox({boxName: boxName.trimEnd(), boxCode: boxCode, boxColor: boxColor, boxLogo: boxLogo, boxTitle: boxTitle, boxDescription: boxDescription})
     alert(`Suggestion Box ${boxName} successfully Created`)
     naviagate('/my-box/search')
   }
@@ -40,22 +47,22 @@ function CreateBox(){
 
           <div className="flex flex-col">
             <label htmlFor="name"> Name <span className="text-red-500">*</span></label>
-            <input type="text" name="name" id="" placeholder="Box Name" value={boxName} onChange={e => setBoxName(e.target.value)} className="p-2" />
+            <input type="text" name="name" id="" placeholder="Box Name" value={boxName.trimStart()} onChange={stringLength} className="p-2" />
           </div>
 
           <div className="flex flex-col">
             <label htmlFor="boxCode"> Box Password <span className="text-red-500">*</span></label>
-          <input type="password" name="boxcode" id="" placeholder="Password" value={boxCode} onChange={e => setBoxCode(e.target.value)}  className="p-2" />
+          <input type="password" name="boxcode" id="" placeholder="Password" value={boxCode.trimStart().trimEnd()} onChange={e => setBoxCode(e.target.value)}  className="p-2" />
           </div>
           
           <div className="flex flex-col">
             <label htmlFor="title"> Title <span>(OPTIONAL)</span></label>
-          <input type="text" name="title" id="" placeholder="Title (Optional)" value={boxTitle} onChange={e => setBoxTitle(e.target.value)} disabled={boxLogo}  className="p-2" />
+          <input type="text" name="title" id="" placeholder="Title (Optional)" value={boxTitle} onChange={stringLength} disabled={boxLogo}  className="p-2" />
           </div>
           
           <div className="flex flex-col">
             <label htmlFor="logo"> Logo <span>(OPTIONAL)</span></label>
-          <input type="url" name="logo" id="" placeholder="Image Link (Optional)" value={boxLogo} onChange={e => setBoxLogo(e.target.value)} disabled={boxTitle}  className="p-2" />
+          <input type="url" name="logo" id="" placeholder="Image Link (Optional)" value={boxLogo.trimStart()} onChange={e => setBoxLogo(e.target.value)} disabled={boxTitle}  className="p-2" />
           </div>
 
           <div className="flex flex-col">
