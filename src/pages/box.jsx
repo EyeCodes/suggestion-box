@@ -47,7 +47,7 @@ function Box({setAnimation, title, logo, color}){
 
   return (
   <div className='h-full w-full flex justify-center items-center'>
-    <div className={`boxSize h-[20em] w-[20em] relative transform-3d bg-none perspective-1000 -rotate-x-20 rotate-y-10 ${setAnimation}`}>
+    <div className={`boxSize h-[20em] w-[20em] sm:scale-[.5] md:scale-[.8] lg:scale-[1] relative transform-3d bg-none perspective-1000 -rotate-x-20 rotate-y-10 ${setAnimation}`}>
 
             <div style={{ backgroundColor: `#`+boxColor[0][color]['back'] }} className={`h-full w-full absolute flex items-center -translate-z-[10rem] `}> 
               {/* back */}

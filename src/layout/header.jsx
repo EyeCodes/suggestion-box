@@ -1,18 +1,51 @@
-import { useNavigate } from "react-router-dom";
-import NavBar from "../utils/navBar";
+import Searchbar from "../component/searchbar";
+import NavLinks from "../component/navLinks";
+import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
+import { useEffect, useState } from "react";
 
 function Header(){
 
-  const naviagate = useNavigate()
+  const [menu, setMenu] = useState(false)
+  const [hideLinks, setHideLinks] = useState(false)
 
-  const home = () =>{
-    naviagate('/')
-  }
+  const checkScreenSize = ()=>{
+      
+      if(window.innerWidth < 800){ 
+        setMenu(true)
+        setHideLinks(true)
+      }
+      else {
+        setMenu(false) 
+        setHideLinks(false)
+      }
+    }
+
+  useEffect(()=> {
+    
+    checkScreenSize()
+    
+    window.addEventListener('resize', checkScreenSize)
+    return () => {
+        window.removeEventListener('resize', checkScreenSize);
+      };
+    }, []);
 
   return (
     <header className='h-[5em] w-full p-5 bg-blue-400 flex flex-row justify-between absolute top-0 overflow-hidden z-99 '>
-      <h1 className='text-white sm:text-[1rem] text-center md:text-[1.2rem] font-bold' onClick={home}>SUGGESTION BOX</h1>
-      <NavBar/>
+          <NavLinks linkTitle={'Suggestion Box'} routeName={''} styleCss ={'text-xl'} />
+        <nav className=" w-fit flex flex-row flex-nowrap  grow-1 justify-evenly items-center gap-2">
+        
+        <div className="w-full flex sm:justify-evenly md:justify-center items-center">
+          <Searchbar placeholder='Search for Suggestion Box' />
+          {menu ? <Bars3BottomRightIcon className="h-10 w-10 text-white" onClick={()=>setHideLinks(prev => !prev)} /> : ''}
+        </div>
+        
+          {hideLinks ? '' : <div className="w-full md:w-[20%] flex gap-2 justify-end float-end">
+              <NavLinks linkTitle={'Create'} routeName={'create'} />
+              <NavLinks linkTitle={'My Box'} routeName={'my-box/search'} />
+              </div>}
+
+        </nav>
     </header>
   )
 }

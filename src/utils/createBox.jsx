@@ -2,7 +2,6 @@ import { db } from '../config/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import CryptoJS  from 'crypto-js';
 
-
 const addBox = async (boxConfig) => {
 
     const hashedBoxCode = CryptoJS.SHA256(boxConfig.boxCode).toString();

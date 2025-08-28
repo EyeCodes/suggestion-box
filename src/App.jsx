@@ -2,8 +2,8 @@ import './App.css'
 import Header from './layout/header';
 import CreateBox from './pages/createBox';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import FetchBox from './component/fetchBox';
-import FetchMyBox from './component/fetchMyBox';
+import FetchBox from './utils/fetchBox';
+import FetchMyBox from './utils/fetchMyBox';
 import MyBox from './pages/myBox';
 import PageEmpty from './layout/emptyPage';
 import HomePage from './pages/home';
@@ -48,7 +48,7 @@ useEffect(()=> {
             <Route path='/*' element={<PageEmpty message={`404 \n PAGE NOT FOUND`} />} />
           </Routes>
         </div>
-        {/* <ReportButton /> */}
+        <ReportButton />
         </div>  
       </>    
         ) }
