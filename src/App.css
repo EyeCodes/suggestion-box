@@ -112,6 +112,10 @@ option{
     }
   }
 
+  .reportBtn{
+    margin: 5%;
+  }
+
   .homePage{
     display: flex;
     nav input{
@@ -123,7 +127,7 @@ option{
     height: 70%;
     width: 90%;
     padding: 1em;
-    top: 65%;
+    top: 50%;
   }
   .createBox, .myBox{
     display: flex;
@@ -131,7 +135,7 @@ option{
     .createBoxForm{
       height: fit-content;
       overflow: scroll;
-      padding-top: 10vw;
+      margin-top: 10%;
     }
   }
 

@@ -31,16 +31,18 @@ function Header(){
     }, []);
 
   return (
-    <header className='h-[5em] w-full p-5 bg-blue-400 flex flex-row justify-between absolute top-0 overflow-hidden z-99 '>
+    <header className='h-fit w-full p-5 bg-blue-400 flex flex-row justify-between absolute top-0 overflow-hidden z-99 '>
+
           <NavLinks linkTitle={'Suggestion Box'} routeName={''} styleCss ={'text-xl'} />
-        <nav className=" w-fit flex flex-row flex-nowrap  grow-1 justify-evenly items-center gap-2">
+
+        <nav className="w-full flex sm:flex-col md:flex-row flex-nowrap justify-evenly items-center gap-2">
         
         <div className="w-full flex sm:justify-evenly md:justify-center items-center">
           <Searchbar placeholder='Search for Suggestion Box' />
           {menu ? <Bars3BottomRightIcon className="h-10 w-10 text-white" onClick={()=>setHideLinks(prev => !prev)} /> : ''}
         </div>
         
-          {hideLinks ? '' : <div className="w-full md:w-[20%] flex gap-2 justify-end float-end">
+          {hideLinks ? '' : <div className="w-100 md:w-[20%] flex sm:gap-5 md:gap-2 justify-end float-end">
               <NavLinks linkTitle={'Create'} routeName={'create'} />
               <NavLinks linkTitle={'My Box'} routeName={'my-box/search'} />
               </div>}

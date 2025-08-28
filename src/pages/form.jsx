@@ -71,7 +71,7 @@ function Form(box) {
     <>
       <Box setAnimation={boxAnimation} color={boxData.boxColor} logo={boxData.boxLogo} title={boxData.boxTitle}  />
 
-      <div className={`${letterAnimation} letterForm sm:h-[80%] md:h-fit w-150 py-[1em] rounded-md opacity-70 absolute bg-white sm:top-[60%] xl:top-[60%] left-[50%] -translate-x-[50%] -translate-y-[55%] shadow-2xl transform-z-99`}>
+      <div className={`${letterAnimation} letterForm sm:h-[80%] md:h-fit w-150 py-[1em] rounded-md opacity-70 absolute bg-white sm:top-[50%] xl:top-[60%] left-[50%] -translate-x-[50%] -translate-y-[55%] shadow-2xl transform-z-99`}>
         
       <div className={` h-full w-full relative transform-3d perspective-distant overflow-auto`}>
         <div className='flex flex-col bg-white'>

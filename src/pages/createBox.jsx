@@ -42,7 +42,7 @@ function CreateBox(){
   return (
     <div className="createBox h-full w-full grid grid-cols-2 justify-center items-center">
       <Box setAnimation={boxAnimation} color={boxColor} logo={boxLogo} title={boxTitle}/>
-      <div className="createBoxForm h-[80dvh] w-[95%] m-4 bg-none border border-[#84c8ff] rounded-3xl p-4 flex flex-col top-20 overflow-x-scroll gap-2 z-2">
+      <div className="createBoxForm h-[80dvh] w-[95%] bg-none border border-[#84c8ff] rounded-3xl p-4 flex flex-col overflow-x-scroll gap-2 z-2">
         <h1 className="text-[#84c8ff] font-bold" >CREATE SUGGESTION BOX</h1>
 
           <div className="flex flex-col gap-1">

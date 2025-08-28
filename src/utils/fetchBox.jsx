@@ -35,7 +35,7 @@ function FetchBox() {
     fetchItems();
   }, [box]); 
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="text-[#84c8ff]">Loading...</div>;
 
   if (error) return <div>Error: {error}</div>;
 
