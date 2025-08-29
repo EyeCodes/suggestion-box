@@ -44,20 +44,15 @@ function MyBox(){
 
 
     return (
-      <div className="myBox h-full w-full flex md:flex-row sm:flex-col-reverse items-center">
-          {boxData ? (
-          <Box setAnimation={boxAnimation} color={boxData.boxColor} logo={boxData.boxLogo} title={boxData.boxTitle}  />
-        ) : (
-          <PageEmpty message={`SUGGESTION "${boxData.boxName}" DOES NOT EXIST`} />
-        )}
+      <div className="myBox h-full w-full flex justify-center items-center">
 
-        <div className="h-[80dvh] w-[90%] m-4 bg-none border border-[#84c8ff] rounded-3xl z-9">
+        <div className="letterCont h-[80dvh] w-[80dvw] m-4 bg-none border border-[#84c8ff] rounded-3xl z-9">
           {loading ? (<div className="h-full w-full flex justify-center items-center"> 
               <h1 className="text-[#84c8ff]">Loading...</h1>
-            </div>): letter ? (<div className="letterCont h-full w-full p-4 overflow-scroll flex flex-wrap gap-2 justify-center" >
+            </div>): letter ? (<div className="h-full w-full p-2 overflow-scroll flex flex-wrap gap-2 justify-center content-start" >
               {letter.map(e=>{
                 return (
-                  <div onClick={toggle} id={e.letter.name} style={expandLetterStyle} className={`${letterId === e.letter.name ? 'bg-[#84c8ff]' : 'bg-white'} hover:bg-[#84c8ff] p-4 rounded-xl  overflow-hidden relative transition-colors duration-200 ease-in-out`} >
+                  <div onClick={toggle} id={e.letter.name} style={expandLetterStyle} className={` letter  ${letterId === e.letter.name ? 'bg-[#84c8ff]' : 'bg-white'} hover:bg-[#84c8ff] p-4 rounded-xl  overflow-hidden relative transition-colors duration-200 ease-in-out`} >
                     <div className=" h-full w-full flex flex-col gap-2">
                       <div className="h-fit w-full overflow-ellipsis">
                         <h1 className="text-[#19181b] text-[90%]" >Name: {e.letter.name}</h1>

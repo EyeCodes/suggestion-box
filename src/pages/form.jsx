@@ -56,7 +56,7 @@ function Form(box) {
       if(report) SendReport({ title: userName.trimEnd(),type: type, about: content, box: boxData.boxName})
       else sendLetter({ name: userName,type: type, content: content, box: boxData.boxName})
 
-      setLetterAnimation('letter')
+      setLetterAnimation('letterAnimation')
       setBoxAnimation('')
 
       setName(''), setType('suggestion'), setContent(''), setIsChecked(false)

@@ -2,7 +2,7 @@
     animation: rotate 10s ease-in-out infinite;
 }
 
-.letter{
+.letterAnimation{
   animation: zoomOut 5s ease-in-out infinite;
 }
 
@@ -127,23 +127,25 @@ option{
     height: 70%;
     width: 90%;
     padding: 1em;
-    top: 50%;
+    top: 55%;
   }
   .createBox, .myBox{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     .createBoxForm{
-      height: fit-content;
+      height: 100%;
       overflow: scroll;
-      margin-top: 10%;
+      margin-bottom: 20%;
     }
   }
 
   .letterCont{
-    height: 50svh;
-    margin-top: 2em;
+    height: 70svh;
     padding: 2em;
     justify-content: center;
+  }
+  .letter{
+    width: 30svw !important;
   }
 
   .pageEmpty{
