@@ -13,7 +13,7 @@ function CreateBox(){
     const [boxLogo, setBoxLogo] = useState('');
     const [boxDescription, setBoxDescription] = useState('');
 
-    const {boxNameTaken, checking} = ValidateBoxName(boxName)
+    const {boxNameTaken, checking} = ValidateBoxName(boxName.trimEnd())
 
 
     const naviagate = useNavigate()
@@ -21,9 +21,11 @@ function CreateBox(){
   const color = ['default', 'red', 'green', 'blue', 'white']
 
   const stringLength = (e) => {
-    if(e.target.value.length <= 50 ){
-      if(e.target.name != 'name') {setBoxTitle(e.target.value)}
-      else {setBoxName(e.target.value)
+      const cleanText = e.target.value.replace(/\s+/g, ' ').trimStart()
+
+    if(cleanText.length <= 50 ){
+      if(e.target.name != 'name') {setBoxTitle(cleanText)}
+      else {setBoxName(cleanText)
     }}
   }
   

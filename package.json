@@ -1,7 +1,7 @@
 {
   "name": "suggestion-box",
   "private": true,
-  "version": "pre.7.0",
+  "version": "pre.7.1",
   "homepage": "http://EyeCodes.github.io/suggestion-box",
   "type": "module",
   "scripts": {
