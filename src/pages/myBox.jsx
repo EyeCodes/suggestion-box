@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import Box from "./box";
 import PageEmpty from "../layout/emptyPage";
 import FetchLetters from "../utils/fetchLetters";
 // import Letter from "../layout/letterModal";
 
 function MyBox(){
   const location = useLocation();
-  const [boxAnimation] = useState('box');
   const [letterId, setLetterId] = useState('')
   const [expandLetter, setExpandLetter] = useState(false)
 
@@ -24,7 +22,6 @@ function MyBox(){
   const target = e.currentTarget
 
     setLetterId(target.id)
-    console.log(letterId, target.id)
 
       setTimeout(()=>{
       if(target){
@@ -42,14 +39,13 @@ function MyBox(){
 
   const {letter, loading} = FetchLetters(boxData.boxName)
 
-
     return (
       <div className="myBox h-full w-full flex justify-center items-center">
 
         <div className="letterCont h-[80dvh] w-[80dvw] m-4 bg-none border border-[#84c8ff] rounded-3xl z-9">
           {loading ? (<div className="h-full w-full flex justify-center items-center"> 
               <h1 className="text-[#84c8ff]">Loading...</h1>
-            </div>): letter ? (<div className="h-full w-full p-2 overflow-scroll flex flex-wrap gap-2 justify-center content-start" >
+            </div>) : letter ? (<div className="h-full w-full p-2 overflow-scroll flex flex-wrap gap-2 justify-center content-start" >
               {letter.map(e=>{
                 return (
                   <div onClick={toggle} id={e.letter.name} style={expandLetterStyle} className={` letter  ${letterId === e.letter.name ? 'bg-[#84c8ff]' : 'bg-white'} hover:bg-[#84c8ff] p-4 rounded-xl  overflow-hidden relative transition-colors duration-200 ease-in-out`} >
@@ -59,11 +55,10 @@ function MyBox(){
                         <h1 className="text-[#19181b] text-[90%]" >Type: {e.letter.type}</h1>
                       </div>
                       {expandLetter ? (<div className="h-full w-full flex flex-col"> 
-                                        <textarea name="" id="" className="h-full w-full resize-none text-[90%] p-2 text-sm bg-[#19181b]">
-                                          {e.letter.contet}
+                                        <textarea name="" defaultValue={e.letter.content} className="h-full w-full resize-none text-[90%] p-2 text-sm bg-[#19181b]">
                                         </textarea>
 
-                                      </div>) : ''}
+                                        </div>) : ''}
                     </div>
                   </div>
                 )

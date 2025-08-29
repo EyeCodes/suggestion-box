@@ -2,6 +2,7 @@ import { useState } from "react";
 import addBox from "../utils/createBox";
 import Box from "./box"
 import { useNavigate } from "react-router-dom";
+import { ValidateBoxName } from "../utils/validateBoxName";
 
 function CreateBox(){
     const [boxAnimation] = useState('box');
@@ -11,6 +12,9 @@ function CreateBox(){
     const [boxTitle, setBoxTitle] = useState('');
     const [boxLogo, setBoxLogo] = useState('');
     const [boxDescription, setBoxDescription] = useState('');
+
+    const {boxNameTaken, checking} = ValidateBoxName(boxName)
+
 
     const naviagate = useNavigate()
 
@@ -28,6 +32,7 @@ function CreateBox(){
     if(!boxName || !boxCode){
       return alert('All required field must be filled')
     }
+    if(boxNameTaken && boxName && boxCode) return alert('Name is already Taken')
     setBoxName('')
     setBoxCode('')
     setBoxLogo('')
@@ -48,6 +53,7 @@ function CreateBox(){
           <div className="flex flex-col gap-1">
             <label htmlFor="name"> Name <span className="text-red-500">*</span></label>
             <input type="text" name="name" id="" placeholder="Box Name" value={boxName.trimStart()} onChange={stringLength} className="p-2" />
+                  {boxName ? checking ? ( <h1 className="text-[#84c8ff]">Checking...</h1> ) : boxNameTaken ? <h1 className="text-[#ff2525]">Name Taken</h1> : <h1 className="text-[#1dff21]">Name Available</h1> : '' }
           </div>
 
           <div className="flex flex-col gap-1">

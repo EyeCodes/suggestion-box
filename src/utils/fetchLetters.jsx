@@ -8,7 +8,6 @@ export const FetchLetters = (boxName) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
   useEffect(() => {
     const fetchItems = async () => {
       try {

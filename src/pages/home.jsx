@@ -1,6 +1,5 @@
 function HomePage(){
 
-
   return (
     <div className="homePage h-full w-full flex flex-col justify-center items-center gap-5">
       <h1 className="text-center font-bold text-[2rem] text-blue-300">WELCOME!</h1>
